@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+}
+apply plugin: "jacoco"
+
+
+
+group 'TP6'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jacocoTestReport {
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("build/jacocoHtml")
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+
+
+test.finalizedBy(jacocoTestReport,jacocoTestCoverageVerification)
+
+task generateMatrixAPI  (type:Copy){
+    from ('build/jacocoHtml') { into       'TestQualityReports' }  
+    from ('build/reports/tests/test') {  into    'TestReports'    }
+    from ('build/docs') {  into    'documentation'    }
+    from ('build/libs/TP6-1.0-SNAPSHOT.jar') {  into    'API'    }
+    into 'C:/Users/ASUS/Desktop/ACP/MatrixRelease/Matrix_v_1.0'
+}
+
+generateMatrixAPI.dependsOn 'build'
+
+deployjar {
+    repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "scp://repos.mycompany.com/releases") {
+            authentication(userName: "MyMavenRepo", password: "31052194")
+        }
+    }
+}
+
+plugins {
+    id "com.alexleventer.slack" version "1.0.3"
+}
+
+slack {
+    webhookUrl "https://hooks.slack.com/services/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"
+    username "Gradle"
+    shouldMonitor "build", "test"
+}
+deployjar.dependsOn 'generateMatrixAPI'
+
+
+
+slack.dependsOn 'deployjar'
