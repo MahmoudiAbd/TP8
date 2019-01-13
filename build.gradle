@@ -61,7 +61,7 @@ uploadArchives {
                 username "MyMavenRepo"
                 password "31052194"
             }
-            url "scp://repos.mycompany.com/releases"
+            url "https://mymavenrepo.com/repo/tYHMpKbOdgQOy3f6WEbq/"
         }
     }
 }
