@@ -21,6 +21,7 @@ pipeline {
               bat 'sonar-scanner'
             }
 
+            waitForQualityGate true
           }
         }
         stage('test reporint') {
@@ -35,9 +36,9 @@ pipeline {
         bat 'gradle uploadArchives '
       }
     }
-    stage('slack notify') {
+    stage('Notify slack') {
       steps {
-        slackSend(baseUrl: 'https://gradlecompany.slack.com/services/hooks/jenkins-ci/', channel: 'jenkins_notif', token: 'p7Yfaycr0DCUIebHkeysa4QB')
+        slackSend(botUser: true, baseUrl: 'https://gradlecompany.slack.com/services/hooks/jenkins-ci/')
       }
     }
   }
