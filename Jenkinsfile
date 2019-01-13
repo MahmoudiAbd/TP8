@@ -18,6 +18,6 @@ pipeline {
     gradle 'Gradle_Latest'
       
   }
-   environment { PATH = "C:\Program Files (x86)\Java\jdk1.8.0_131\bin:$PATH" }
+   environment { PATH = "C:\Program Files (x86)\Java\jdk1.8.0_131\bin" }
    
 }
