@@ -59,7 +59,7 @@ uploadArchives {
         maven {
             credentials {
                 username "MyMavenRepo"
-                password "31052194"
+                password "123"
             }
             url "https://mymavenrepo.com/repo/tYHMpKbOdgQOy3f6WEbq/"
         }
