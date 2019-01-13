@@ -19,5 +19,5 @@ pipeline {
       
   }
    
-  environment { PATH = "C:\\Program Files (x86) \\Java\\jdk1.8.0_131\\bin C:\\Windows\\System32" }
+  environment { PATH = "C:\\Program Files (x86) \\Java\\jdk1.8.0_131\\bin C:\\Windows\\system32" }
 }
