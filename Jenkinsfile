@@ -35,6 +35,11 @@ pipeline {
         bat 'gradle uploadArchives '
       }
     }
+    stage('slack notify') {
+      steps {
+        slackSend(baseUrl: 'https://gradlecompany.slack.com/services/hooks/jenkins-ci/', channel: 'jenkins_notif', token: 'p7Yfaycr0DCUIebHkeysa4QB')
+      }
+    }
   }
   tools {
     gradle 'Gradle_Latest'
