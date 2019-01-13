@@ -5,7 +5,7 @@ pipeline {
       steps {
         bat(script: 'gradle build', returnStatus: true)
         bat 'gradle javadoc'
-        archiveArtifacts 'build/libs/*jar build/doc/javadoc'
+        archiveArtifacts 'build/libs/*,jar'
       }
     }
     stage('Mail Notification') {
