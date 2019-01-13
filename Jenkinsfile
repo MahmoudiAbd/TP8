@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'gradle build'
+        bat(script: 'gradle build', returnStatus: true)
       }
     }
     stage('Mail Notification') {
