@@ -1,6 +1,9 @@
 plugins {
     id 'java'
+    id "com.alexleventer.slack" version "1.0.3"
 }
+
+
 apply plugin: "jacoco"
 
 
@@ -59,9 +62,6 @@ deployjar {
     }
 }
 
-plugins {
-    id "com.alexleventer.slack" version "1.0.3"
-}
 
 slack {
     webhookUrl "https://hooks.slack.com/services/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"
