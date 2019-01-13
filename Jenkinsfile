@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Notify slack') {
       steps {
-        slackSend(botUser: true, baseUrl: 'https://gradlecompany.slack.com/services/hooks/jenkins-ci/')
+        slackSend(botUser: true, baseUrl: 'https://gradlecompany.slack.com/services/hooks/jenkins-ci/', channel: 'jenkins_notif', message: 'Integrtation terminer', token: 'p7Yfaycr0DCUIebHkeysa4QB')
       }
     }
   }
