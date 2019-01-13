@@ -1,6 +1,6 @@
 pipeline {
   agent any
-   tools {  gradle 'GRADLE_LATEST' }
+   tools {  gradle 'Gradle_Latest' }
   stages {
     stage('Build') {
       steps {
