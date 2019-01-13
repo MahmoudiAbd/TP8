@@ -16,7 +16,8 @@ pipeline {
   }
   tools {
     gradle 'Gradle_Latest'
-      jdk "jdk-1.8.101"
+      
   }
+   environment { PATH = "C:\Program Files (x86)\Java\jdk1.8.0_131\bin:$PATH" }
    
 }
