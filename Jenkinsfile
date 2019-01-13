@@ -15,7 +15,10 @@ pipeline {
     }
     stage('Code Analysis') {
       steps {
-        withSonarQubeEnv 'sonarquabe'
+        withSonarQubeEnv('sonarquabe') {
+          bat 'sonarscanner'
+        }
+
       }
     }
   }
