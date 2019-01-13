@@ -53,7 +53,7 @@ task generateMatrixAPI  (type:Copy){
 
 generateMatrixAPI.dependsOn 'build'
 
-deployjar {
+uploadArchives  {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
         repository(url: "scp://repos.mycompany.com/releases") {
@@ -68,8 +68,8 @@ slack {
     username "Gradle"
     shouldMonitor "build", "test"
 }
-deployjar.dependsOn 'generateMatrixAPI'
+uploadArchives.dependsOn 'generateMatrixAPI'
 
 
 
-slack.dependsOn 'deployjar'
+slack.dependsOn 'uploadArchives'
