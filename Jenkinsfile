@@ -6,5 +6,10 @@ pipeline {
         sh './gradlew build'
       }
     }
+    stage('Mail Notification') {
+      steps {
+        mail(subject: 'jenkins', body: 'jenkins', mimeType: 'text')
+      }
+    }
   }
 }
