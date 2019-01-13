@@ -9,25 +9,25 @@ pipeline {
       }
     }
     stage('Mail Notification') {
+      steps {
+        mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
+      }
+    }
+    stage('Code Analysis') {
       parallel {
-        stage('Mail Notification') {
+        stage('Code Analysis') {
           steps {
-            mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
+            withSonarQubeEnv('sonarquabe') {
+              bat 'sonar-scanner'
+            }
+
           }
         }
-        stage('Test Reporting') {
+        stage('test reporint') {
           steps {
             bat 'gradle test'
           }
         }
-      }
-    }
-    stage('Code Analysis') {
-      steps {
-        withSonarQubeEnv('sonarquabe') {
-          bat 'sonar-scanner'
-        }
-
       }
     }
   }
