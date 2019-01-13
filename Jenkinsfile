@@ -30,6 +30,11 @@ pipeline {
         }
       }
     }
+    stage('Deployment') {
+      steps {
+        bat 'gradle uploadArchives '
+      }
+    }
   }
   tools {
     gradle 'Gradle_Latest'
