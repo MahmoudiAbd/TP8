@@ -16,5 +16,7 @@ pipeline {
   }
   tools {
     gradle 'Gradle_Latest'
+      jdk "jdk-1.8.101"
   }
+   
 }
