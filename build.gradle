@@ -53,15 +53,18 @@ task generateMatrixAPI  (type:Copy){
 
 generateMatrixAPI.dependsOn 'build'
 
-uploadArchives  {
-    repositories.mavenDeployer {
-        configuration = configurations.deployerJars
-        repository(url: "scp://repos.mycompany.com/releases") {
-            authentication(userName: "MyMavenRepo", password: "31052194")
+
+uploadArchives {
+    repositories {
+        maven {
+            credentials {
+                username "MyMavenRepo"
+                password "31052194"
+            }
+            url "scp://repos.mycompany.com/releases"
         }
     }
 }
-
 
 slack {
     webhookUrl "https://hooks.slack.com/services/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"
