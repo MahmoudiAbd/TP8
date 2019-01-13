@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Mail Notification') {
       steps {
-        mail(subject: 'jenkins', body: 'jenkins', mimeType: 'text')
+        mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
       }
     }
   }
