@@ -9,8 +9,17 @@ pipeline {
       }
     }
     stage('Mail Notification') {
-      steps {
-        mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
+      parallel {
+        stage('Mail Notification') {
+          steps {
+            mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
+          }
+        }
+        stage('Test Reporting') {
+          steps {
+            bat 'gradle test'
+          }
+        }
       }
     }
     stage('Code Analysis') {
