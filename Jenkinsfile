@@ -13,6 +13,11 @@ pipeline {
         mail(subject: 'jenkins', body: 'jenkins', from: 'pipeline', to: 'ea_mahmoudi@esi.dz')
       }
     }
+    stage('Code Analysis') {
+      steps {
+        withSonarQubeEnv 'sonarquabe'
+      }
+    }
   }
   tools {
     gradle 'Gradle_Latest'
