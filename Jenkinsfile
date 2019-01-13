@@ -23,6 +23,6 @@ pipeline {
     gradle 'Gradle_Latest'
   }
   environment {
-    PATH = 'C:\\Program Files (x86)\\Java\\jdk1.8.0_131\\bin;C:\\Windows\\system32;D:\\sonarqube-7.3\\bin\\windows-x86-64'
+    PATH = 'C:\\Program Files (x86)\\Java\\jdk1.8.0_131\\bin;C:\\Windows\\system32;D:\\sonarqube-7.3\\bin\\windows-x86-64;D:\sonar-scanner-3.2.0.1227-windows\bin'
   }
 }
