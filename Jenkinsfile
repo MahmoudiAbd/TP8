@@ -5,7 +5,7 @@ pipeline {
       steps {
         bat(script: 'gradle build', returnStatus: true)
         bat 'gradle javadoc'
-        archiveArtifacts 'build/libs/*jar buil/doc/javadoc'
+        archiveArtifacts 'build/libs/*jar build/doc/javadoc'
       }
     }
     stage('Mail Notification') {
@@ -16,8 +16,8 @@ pipeline {
   }
   tools {
     gradle 'Gradle_Latest'
-      
   }
-   
-  environment { PATH = "C:\\Program Files (x86)\\Java\\jdk1.8.0_131\\bin;C:\\Windows\\system32" }
+  environment {
+    PATH = 'C:\\Program Files (x86)\\Java\\jdk1.8.0_131\\bin;C:\\Windows\\system32'
+  }
 }
