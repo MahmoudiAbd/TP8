@@ -66,13 +66,4 @@ uploadArchives {
     }
 }
 
-slack {
-    webhookUrl "https://hooks.slack.com/services/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"
-    username "Gradle"
-    shouldMonitor "build", "test"
-}
-uploadArchives.dependsOn 'generateMatrixAPI'
 
-
-
-slack.dependsOn 'uploadArchives'
